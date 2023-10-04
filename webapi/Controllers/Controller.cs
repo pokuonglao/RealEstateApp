@@ -1,32 +1,21 @@
 using Microsoft.AspNetCore.Mvc;
+using RealEstateApp.Repositories;
+using Microsoft.Extensions.Configuration;
+using RealEstateApp.Models;
 
-namespace webapi.Controllers;
-
-[ApiController]
-[Route("[controller]")]
-public class Controller : ControllerBase
+namespace RealEstateApp.Controllers
 {
-    private static readonly string[] Summaries = new[]
+    public class AddClientController : Controller
     {
-        "Freezing", "Bracing", "Chilly", "Cool", "Mild", "Warm", "Balmy", "Hot", "Sweltering", "Scorching"
-    };
+        // used to import the sql repository to read all the rules from
+        private readonly SQLRepository sqlRepo;
 
-    private readonly ILogger<Controller> _logger;
-
-    public Controller(ILogger<Controller> logger)
-    {
-        _logger = logger;
-    }
-
-    [HttpGet(Name = "GetWeatherForecast")]
-    public IEnumerable<WeatherForecast> Get()
-    {
-        return Enumerable.Range(1, 5).Select(index => new WeatherForecast
+        // used to read the info from appsettings.json
+        private readonly IConfiguration _configuration;
+        public AddClientController(IConfiguration configuration) 
         {
-            Date = DateOnly.FromDateTime(DateTime.Now.AddDays(index)),
-            TemperatureC = Random.Shared.Next(-20, 55),
-            Summary = Summaries[Random.Shared.Next(Summaries.Length)]
-        })
-        .ToArray();
+            this._configuration = configuration; // retrieves configuration passed in (appsettings.json)
+            this.sqlRepo = new SQLRepository(_configuration, "ExpressionTable"); // pass in data retrieved from server to instance of SQLRepository
+        }
     }
 }

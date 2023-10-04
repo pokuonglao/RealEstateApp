@@ -1,4 +1,4 @@
-namespace webapi;
+namespace RealEstateApp.Models;
 
 public class Client
 {
@@ -27,7 +27,7 @@ public class Client
     public string Email { get; set; }
 
     public HomeNeed NeedHome { get; set; }
-    
+
     public HousingStatus DoYou { get; set; }
 
     public AgentQuestion Agent { get; set; }
@@ -42,7 +42,7 @@ public class Client
 
     public MarketUpdateQuestion MarketUpdate { get; set; }
 
-    public Client() 
+    public Client()
     {
         NeedHome = new HomeNeed();
 
@@ -59,7 +59,7 @@ public class Client
     }
 }
 
-public enum NeedHomeOptions 
+public enum NeedHomeOptions
 {
     Now,
     "1-3 Months",
@@ -78,7 +78,7 @@ public enum AgentOption
     No
 }
 
-public enum LoanOption 
+public enum LoanOption
 {
     Yes,
     No
@@ -104,7 +104,7 @@ public class HomeNeed
     public string Question { get; set; }
     public NeedHomeOptions Answer { get; set; }
 
-    public HomeNeed() 
+    public HomeNeed()
     {
         Question = "When do you need a home?";
     }
@@ -135,7 +135,7 @@ public class AgentQuestion
 
 }
 
-public class LoanQuestion 
+public class LoanQuestion
 {
     public string Question { get; set; }
     public LoanOption Answer { get; set; }
