@@ -1,24 +1,33 @@
-//using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc;
+using RealEstateApp.Entities;
+using RealEstateApp.Repositories;
 
-//namespace RealEstateApp.controllers
-//{
-//    [ApiController]
-//    public class AddClientController : ControllerBase
-//    {
-//        // used to import the sql repository to read all the rules from
-//        private readonly SQLRepository sqlRepo;
+namespace RealEstateApp.Controllers // Make sure the namespace matches the folder structure
+{
+    [ApiController]
+    public class AddClientController : ControllerBase
+    {
+        private readonly SQLRepository sqlRepo;
 
-//        // used to read the info from appsettings.json
-//        private readonly IConfiguration _configuration;
+        public AddClientController(SQLRepository sqlRepo)
+        {
+            this.sqlRepo = sqlRepo;
+        }
 
-//        public AddGuestController(IConfiguration configuration)
-//        {
-//            this._configuration = configuration; // retrieves configuration passed in (appsettings.json)
-//            this.sqlRepo = new SQLRepository(_configuration, "ExpressionTable"); // pass in data retrieved from server to instance of SQLRepository
-//        }
-
-
-//    }
-
-//}
-
+        [HttpPost]
+        [Route("api/addguest")] // Define an appropriate route for adding a guest
+        public IActionResult AddGuest(GuestBook guestToAdd)
+        {
+            try
+            {
+                sqlRepo.addGuest(guestToAdd); // Use the SQLRepository to add a guest
+                return Ok("Guest added successfully.");
+            }
+            catch (Exception ex)
+            {
+                // Handle any exceptions or errors here
+                return StatusCode(500,$"An error occurred: {ex.Message}");
+            }
+        }
+    }
+}
