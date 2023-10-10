@@ -1,59 +1,85 @@
-import React, { Component } from 'react';
+import React, { useState } from 'react';
 
-export default class App extends Component {
-    static displayName = App.name;
+function App() {
+    const [guest, setGuest] = useState({
+        ID: '',
+        FirstName: '',
+        LastName: '',
+        address: '',
+        city: '',
+        state: '',
+        // Add more fields as needed
+    });
 
-    constructor(props) {
-        super(props);
-        this.state = { forecasts: [], loading: true };
-    }
+    const handleInputChange = (event) => {
+        const { name, value } = event.target;
+        setGuest({ ...guest, [name]: value });
+    };
 
-    componentDidMount() {
-        this.populateWeatherData();
-    }
+    const handleSubmit = (event) => {
+        event.preventDefault();
 
-    static renderForecastsTable(forecasts) {
-        return (
-            <table className='table table-striped' aria-labelledby="tabelLabel">
-                <thead>
-                    <tr>
-                        <th>Date</th>
-                        <th>Temp. (C)</th>
-                        <th>Temp. (F)</th>
-                        <th>Summary</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {forecasts.map(forecast =>
-                        <tr key={forecast.date}>
-                            <td>{forecast.date}</td>
-                            <td>{forecast.temperatureC}</td>
-                            <td>{forecast.temperatureF}</td>
-                            <td>{forecast.summary}</td>
-                        </tr>
-                    )}
-                </tbody>
-            </table>
-        );
-    }
+        // Send a POST request to your API endpoint
+        fetch('/api/addguest', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(guest),
+        })
+            .then((response) => {
+                if (!response.ok) {
+                    throw new Error('Network response was not ok');
+                }
+                return response.json();
+            })
+            .then((data) => {
+                // Update your state or display a success message
+                console.log('Guest added:', data);
+            })
+            .catch((error) => {
+                // Handle the error, e.g., display an error message
+                console.error('Error:', error);
+            });
+    };
 
-    render() {
-        let contents = this.state.loading
-            ? <p><em>Loading... Please refresh once the ASP.NET backend has started. See <a href="https://aka.ms/jspsintegrationreact">https://aka.ms/jspsintegrationreact</a> for more details.</em></p>
-            : App.renderForecastsTable(this.state.forecasts);
 
-        return (
-            <div>
-                <h1 id="tabelLabel" >Weather forecast</h1>
-                <p>This component demonstrates fetching data from the server.</p>
-                {contents}
-            </div>
-        );
-    }
-
-    async populateWeatherData() {
-        const response = await fetch('weatherforecast');
-        const data = await response.json();
-        this.setState({ forecasts: data, loading: false });
-    }
+    return (
+        <div>
+            <h1>Add a Guest</h1>
+            <form onSubmit={handleSubmit}>
+                <div>
+                    <label>ID:</label>
+                    <input
+                        type="text"
+                        name="ID"
+                        value={guest.ID}
+                        onChange={handleInputChange}
+                    />
+                </div>
+                <div>
+                    <label>First Name:</label>
+                    <input
+                        type="text"
+                        name="FirstName"
+                        value={guest.FirstName}
+                        onChange={handleInputChange}
+                    />
+                </div>
+                <div>
+                    <label>Last Name:</label>
+                    <input
+                        type="text"
+                        name="LastName"
+                        value={guest.LastName}
+                        onChange={handleInputChange}
+                    />
+                </div>
+                {/* Add more form fields for other guest details */}
+                <button type="submit">Add Guest</button>
+            </form>
+        </div>
+    );
 }
+
+export default App;

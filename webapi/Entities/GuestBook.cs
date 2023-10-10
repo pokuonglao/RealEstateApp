@@ -26,6 +26,7 @@ namespace RealEstateApp.Entities
 
         public string Email { get; init; }
 
+
         //public HomeNeed NeedHome { get; set; }
 
         //public HousingStatus DoYou { get; set; }
