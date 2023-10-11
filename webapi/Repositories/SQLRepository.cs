@@ -12,16 +12,18 @@ namespace RealEstateApp.Repositories
 {
     public class SQLRepository
     {
+        IConfiguration _configuration;
+        
+        // create an arraylist to save 
+        List<GuestBook> guestList = new List<GuestBook>();
+        HashSet<string> nameOfGuest = new HashSet<string>();
+        Dictionary<string, GuestBook> namesWithGuest= new Dictionary<string, GuestBook>();
+        //Dictionary<string, string> namesWithGuestID = new Dictionary<string, string>();
 
-        private readonly IConfiguration _configuration;
         public SQLRepository(IConfiguration configuration)
         {
             _configuration = configuration; // Initialize the field with the provided configuration
         }
-        // create an arraylist to save 
-        List<GuestBook> guestList = new List<GuestBook>();
-        HashSet<string> namesOfGuest = new HashSet<string>();
-        Dictionary<string, GuestBook> idsOfClients = new Dictionary<string, GuestBook>();
 
         public void addGuest(GuestBook guestToAdd)
         {
@@ -41,7 +43,6 @@ namespace RealEstateApp.Repositories
                     command.ExecuteNonQuery(); // use ExecuteNonQuery because we don't expect to return anything
 
                     guestList.Add(guestToAdd);
-                    namesOfGuest.Add(guestToAdd.ID);
 
                     Debug.WriteLine("Guest added: " + guestToAdd);
                 }
@@ -53,11 +54,47 @@ namespace RealEstateApp.Repositories
         }
 
 
-        // method to retreive all clients from the "clientsList" arraylist
-        //public List<GuestBook> getAllClients()
-        //{
-        //    return guestbookList;
-        //}
+        //method to retreive all clients from the "clientsList" arraylist
+        public List<GuestBook> GetAllGuests()
+        {
+            List<GuestBook> guestList = new List<GuestBook>();
+
+            using (NpgsqlConnection conn = new NpgsqlConnection(_configuration.GetConnectionString("DefaultConnection")))
+            {
+                conn.Open();
+
+                string query = "SELECT * FROM public.\"GuestBooks\"";
+                using (NpgsqlCommand command = new NpgsqlCommand(query, conn))
+                {
+                    using (NpgsqlDataReader reader = command.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            GuestBook guest = new GuestBook
+                            {
+                                ID = reader["ID"].ToString(),
+                                Time = reader["Time"].ToString(),
+                                Date = reader["Date"].ToString(),
+                                Location = reader["Location"].ToString(),
+                                FirstName = reader["FirstName"].ToString(),
+                                LastName = reader["LastName"].ToString(),
+                                Address = reader["Address"].ToString(),
+                                City = reader["City"].ToString(),
+                                State = reader["State"].ToString(),
+                                Zipcode = reader["Zipcode"].ToString(),
+                                Phone = reader["Phone"].ToString(),
+                                Email = reader["Email"].ToString()
+                            };
+
+                            guestList.Add(guest);
+                        }
+                    }
+                }
+            }
+
+            return guestList;
+        }
     }
 }
+
 

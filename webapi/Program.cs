@@ -1,4 +1,5 @@
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Configuration;
 using Npgsql.EntityFrameworkCore.PostgreSQL;
 using RealEstateApp.Data;
 using RealEstateApp.Repositories;
@@ -7,8 +8,6 @@ var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddScoped<SQLRepository>(); // AddScoped or appropriate lifetime
-
-
 
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
 {

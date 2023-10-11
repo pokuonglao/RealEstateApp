@@ -1,6 +1,6 @@
 namespace RealEstateApp.Entities 
 {
-    public class GuestBook
+    public record GuestBook
     {
         public string ID { get; init; }
 
