@@ -1,13 +1,13 @@
 using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.Configuration;
 using RealEstateApp.Entities;
 using RealEstateApp.Repositories;
-using System.Linq.Expressions;
+
+
 
 namespace RealEstateApp.Controllers // Make sure the namespace matches the folder structure
 {
-
+    [Route("[controller]")]
     [ApiController]
     public class GuestBookController : ControllerBase
     {
@@ -17,6 +17,7 @@ namespace RealEstateApp.Controllers // Make sure the namespace matches the folde
         public GuestBookController(SQLRepository sqlRepo)
         {
             this.sqlRepo = sqlRepo;
+
         }
 
         [HttpPost]

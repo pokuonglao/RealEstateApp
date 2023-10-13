@@ -31,8 +31,8 @@ export default defineConfig({
     },
     server: {
         proxy: {
-            '^/weatherforecast': {
-                target: 'https://localhost:7152/',
+            '^/GuestBook': {
+                target: 'https://localhost:7152',
                 secure: false
             }
         },
