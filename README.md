@@ -1,7 +1,6 @@
-# FeedMeYourData-RealEstate
-Open-House Guest Book for Real Estate Agent
+# RealEstate
 ## Overview
-This web application is intended to be used at an Open-House event and record all attended guests similar to a guest book.   
+RealEstate is a platform for real estate agent
 ### Architect 
 Back-end
 - ASP.NET CORE
@@ -13,3 +12,6 @@ Front-end
 possible add-on implementation
 - UI/UX 
 - user can modify the questions
+- Guestbook
+- Profile
+  
