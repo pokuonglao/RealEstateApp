@@ -1,8 +1,21 @@
+import React, { useEffect, useState } from 'react';
 import './Welcome.css';
+
 const Welcome = () => {
+    const [showVideo, setShowVideo] = useState(false);
+
+    // Use a useEffect to delay showing the video
+    useEffect(() => {
+        const timer = setTimeout(() => {
+            setShowVideo(true);
+        }, 3000); // Adjust the delay time as needed
+
+        return () => clearTimeout(timer);
+    }, []);
+
     return (
         <main id="welcome" className="section full static">
-            <div className="wrapper">
+            <div className={`wrapper ${showVideo ? 'hide' : ''}`}> {/* Hide the wrapper when the video is visible */}
                 <header>
                     <h1 id="company-name">Pokuong Lao</h1>
                 </header>
@@ -12,17 +25,10 @@ const Welcome = () => {
                     <div>Exceptional Service</div>
                 </div>
             </div>
-            <div id="bgvid">
+            <div id="bgvid" className={showVideo ? 'show' : ''}>
                 <iframe tabIndex="-1" title="pokuonglao spash video" src="https://player.vimeo.com/video/875746351?background=1&autoplay=1&loop=1&byline=0&title=0" frameBorder="0" webkitallowfullscreen mozallowfullscreen allowFullScreen>
-                
                 </iframe>
             </div>
-            {/*<svg id="scroll-me" class="mouse" data-anchor="properties" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 76 130" preserveAspectRatio="xMidYMid meet" tabindex="-1">*/}
-            {/*    <g fill="none" fill-rule="evenodd">*/}
-            {/*        <rect width="70" height="118" x="1.5" y="1.5" stroke="#FFF" stroke-width="3" rx="36"></rect>*/}
-            {/*        <circle class="scroll" cx="36.5" cy="31.5" r="7" fill="#FFF"></circle>*/}
-            {/*    </g>*/}
-            {/*</svg>*/}
         </main>
     );
 };

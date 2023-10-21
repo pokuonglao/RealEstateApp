@@ -4,6 +4,7 @@ import Layout from './Layout.jsx';
 import Welcome from './Welcome.jsx';
 import Listing from './Listing.jsx';
 import Contact from './Contact.jsx';
+import Pokuong from './Pokuong.jsx';
 
 
 
@@ -13,6 +14,7 @@ export default function App() {
             <Routes>
                 <Route path="" element={<Layout />}>
                     <Route index element={<Welcome />} />
+                    <Route path="pokuong" element={<Pokuong />} />
                     <Route path="listing" element={<Listing />} />
                     <Route path="contact" element={<Contact />} />
                 </Route>
