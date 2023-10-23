@@ -9,14 +9,6 @@
     transition: color .5s ease-in-out,background .5s ease-in-out;
 }
 
-    #header.unlocked.white {
-        text-shadow: 0 1px 1px rgba(0,0,0,.5);
-    }
-
-    #header.unlocked {
-        animation: unlockHeader .5s ease-in-out 1 both;
-    }
-
     #header .wrapper {
         display: flex;
         position: relative;
@@ -44,15 +36,6 @@
         flex: 1 0 auto;
     }
 
-    #header .menu li a {
-        display: block;
-        position: relative;
-        margin: 0;
-        padding: 3px 8px;
-        color: rgba(255,255,255,.8);
-        transition: color .5s ease-in-out;
-    }
-
     #header .menu li {
         display: block;
         position: relative;
@@ -62,88 +45,68 @@
         flex: 0 1 auto;
     }
 
-        #header .menu li a span {
+        #header .menu li a {
             display: block;
-            position: absolute;
-            bottom: 0;
-            left: 50%;
-            width: 0;
-            height: 1px;
-            background-color: #fff;
-            transform: translateX(-50%);
-            transition: width .5s ease-in-out;
+            position: relative;
+            margin: 0;
+            padding: 3px 8px;
+            color: rgba(255,255,255,.8);
+            text-decoration: none; /* Remove underline on hover */
+            transition: color .5s ease-in-out;
         }
 
-li {
-    display: list-item;
-    text-align: -webkit-match-parent;
-}
-
-a, a:visited {
-    color: #005fff;
-    text-decoration: none;
-    transition: color .15s ease-in-out;
-}
-
-ul {
-    display: block;
-    list-style-type: disc;
-    margin-block-start: 1em;
-    margin-block-end: 1em;
-    margin-inline-start: 0px;
-    margin-inline-end: 0px;
-    padding-inline-start: 40px;
-}
-
-.nav-menu {
-    display: flex;
-    position: relative;
-    max-width: 90%;
-    margin: 0 auto;
-    padding: 0;
-    box-sizing: border-box;
-    align-items: center;
-}
-
-    .nav-menu ul {
-        display: flex;
-        position: relative;
-        margin: 0 -13px 0 0;
-        padding: 0;
-        font-size: calc(8pt + .05vw);
-        text-transform: uppercase;
-        text-align: right;
-        letter-spacing: 2px;
-        justify-content: flex-end;
-        flex: 1 0 auto;
-    }
-
-    .nav-menu li {
-        display: block;
-        position: relative;
-        margin: 0 20px;
-        padding: 0 5px;
-        list-style: none;
-        flex: 0 1 auto;
-    }
-
-        /* Style the links without a button background */
-        .nav-menu li a {
-            text-decoration: none;
-            color: #ffffff; /* Text color */
-            transition: color 0.3s, border-bottom 0.3s; /* Add transition effect for color and underline */
-            border-bottom: 2px solid transparent; /* Initially, set a transparent underline */
-        }
-
-            /* Change link appearance on hover */
-            .nav-menu li a:hover {
-                color: #ffffff; /* Text color on hover */
-                border-bottom: 2px solid #ffffff;
+            #header .menu li a span {
+                display: block;
+                position: absolute;
+                bottom: 0;
+                left: 50%;
+                width: 0;
+                height: 1px;
+                background-color: #fff;
+                transform: translateX(-50%);
+                transition: width .5s ease-in-out;
             }
 
-    .nav-menu img {
-        max-width: 9%;
-        padding-right:0px;
+    #header .menu .submenu_wrapper .submenu li a {
+        padding: 5px 0;
+        white-space: nowrap;
+        transition: color .25s ease-in-out;
+        cursor: pointer;
+    }
+
+    #header:not(.locked) .submenu_wrapper {
+        padding-top: 25px;
+    }
+
+
+.menu li:hover .submenu_wrapper .submenu {
+    display: flex;
+}
+
+.has-submenu .submenu_wrapper {
+    display: none;
+    position: absolute;
+}
+
+.has-submenu:hover .submenu_wrapper {
+    display: block;
+}
+
+    .has-submenu:hover .submenu_wrapper ul.submenu {
+        display: flex;
+        position: relative;
+        flex-direction: column;
+        margin: 0;
+        padding: 5px 15px;
+        font-size: calc(9pt + .05vw);
+        text-transform: none;
+        letter-spacing: 1px;
+        text-align: center;
+        background-color: rgba(0,10,12,.2);
+        border: 1px rgba(255,255,255,.8) solid;
+        border-radius: 5px;
+        box-shadow: 0 2px 4px rgba(0,10,12,.2);
+        z-index: 2;
     }
 
 a#logo {
@@ -153,11 +116,15 @@ a#logo {
     text-transform: uppercase;
     line-height: 1em;
     transition: color .5s ease-in-out;
+    text-decoration: none; /* Remove underline on hover */
 }
 
-/* Add a black background to elements with the "black-background" class */
-.black-background {
-    background-color: black;
-    color: white; /* Optionally, change the text color to white for better readability */
+#contact-submenu .submenu {
+    text-align: right;
 }
 
+#contact-submenu.submenu_wrapper {
+    left: auto;
+    right: 0;
+    transform: translateX(0);
+}

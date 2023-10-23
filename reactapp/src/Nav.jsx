@@ -1,22 +1,13 @@
 import React from "react";
-import { Outlet, Link, useLocation } from "react-router-dom";
+import { Outlet } from "react-router-dom";
 import './Nav.css';
-/*import logo from '../image/logo.png'; // Replace with the actual path to your logo image*/
 
 const Nav = () => {
-    const location = useLocation();
-
-    // Check if the current page is not the welcome page
-    const isNotWelcomePage = location.pathname !== '/';
-
-    // Apply the black background class conditionally
-    const navMenuClassName = `wrapper ${isNotWelcomePage ? 'black-background' : ''}`;
-
+ 
     return (
         <div>
             <header id="header" className="white unlocked">
-                <nav className={navMenuClassName}>
-                    {/*<img src={logo} alt="Logo" />*/}
+                <nav className="wrapper">    
                     <a id="logo" href="/">Pokuong Lao</a>
                     <span className="mobile_menu"></span>
                     <ul className="menu">
@@ -25,21 +16,36 @@ const Nav = () => {
                                 <span></span>
                             </a>
                         </li>
-                        <li>
+                        <li className="has-submenu">
                             <a href="/listing">Listing
                                 <span></span>
                             </a>
                             <span className="submenu_wrapper">
-                                <ul className="submenu">
-                                    ::before
+                                <ul className="submenu"> 
                                     <li>
                                         <a href="/listing/lease">Lease</a>
                                     </li>
                                 </ul>
                             </span>
                         </li>
-                        <li>
-                            <Link to="/contact">Contact</Link>
+                        <li className="has-submenu">
+                            <a data-anchor="contact" href="/contact">Contact<span></span></a>
+                            <span id="contact-submenu" className="submenu_wrapper inactive">
+                                <ul className="submenu">
+                                    <li><a href="tel:+16262728808">(626) 272-8808
+                                    </a>
+                                    </li>
+                                    <li><a href="contact/">pokuonglao@outlook.com
+                                    </a>
+                                    </li>
+                                </ul>
+                            </span>
+                        </li>
+                        <li className="private">
+                            <a data-anchor="private" href="private/">  
+                                Private
+                                <span></span>
+                            </a>
                         </li>
                     </ul>
                 </nav>

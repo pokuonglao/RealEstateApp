@@ -1,0 +1,507 @@
+#contact-chris.section {
+    flex-direction: column;
+    background-image: url(../image/beach.jpg) ;
+}
+.section.white {
+    color: #000a0c;
+    background-color: #fff;
+}
+.section.minfull {
+    min-height: 100%;
+}
+
+.section {
+    display: flex;
+    position: relative;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    align-items: center;
+    z-index: 1;
+}
+#header + .section > .wrapper {
+    padding: 100px;
+}
+
+.section .wrapper.center {
+    text-align: center;
+}
+
+.section.white .wrapper {
+    text-shadow: 0 1px 2px rgba(255,255,255,.5);
+}
+
+/*.section.active .wrapper {
+    animation:ease-in;
+}*/
+
+.section .wrapper {
+    display: block;
+    position: relative;
+    width: 100%;
+    max-width: 1440px;
+    margin: 0 auto;
+    padding: 50px 100px;
+    text-shadow: 0 1px 2px rgba(0,0,0,.5);
+    box-sizing: border-box;
+    flex: 1 1 auto;
+    z-index: 3;
+}
+header {
+    display: block;
+}
+h1:first-child, h2:first-child, h3:first-child, h4:first-child, h5:first-child, h6:first-child {
+    margin-top: 0;
+}
+
+.screen-reader-text {
+    border: 0;
+    clip: rect(0 0 0 0);
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    width: 1px;
+}
+
+h1 {
+    font-size: calc(26pt + .5vw);
+    line-height: 1.1em;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    display: block;
+    position: relative;
+    margin: 30px 0;
+    padding: 0;
+    font-weight: 200;
+}
+
+
+h1 {
+    display: block;
+    font-size: 2em;
+    margin-block-start: 0.67em;
+    margin-block-end: 0.67em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    font-weight: bold;
+}
+.card_container {
+    display: flex;
+    position: relative;
+    width: calc(100% + 30px);
+    margin-left: -15px;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: stretch;
+    align-content: stretch;
+    justify-content: center;
+}
+
+div {
+    display: block;
+}
+#contact-chris .user_card, .user_card.idx_agent {
+    width: auto;
+}
+
+.card {
+    display: flex;
+    position: relative;
+    width: 33.33%;
+    padding: 15px;
+    box-sizing: border-box;
+    flex-direction: column;
+    flex: 0 1 auto;
+}
+.user_card > .wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 15px;
+    background: linear-gradient(rgba(255,255,255,.55) 55%,rgba(255,255,255,.9) 100%);
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0,0,0,.2);
+}
+.user_card:not(.badge) .user_image {
+    padding: 25px;
+    background-color: transparent;
+    box-sizing: border-box;
+}
+
+    .user_card:not(.badge) .user_image .image_container > span {
+        border-radius: 50%;
+    }
+
+.user_card .user_image .image_container > span {
+    display: block;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    transform: none;
+    z-index: 2;
+}
+
+[data-lazy].loaded {
+    animation: fadeIn .25s ease-out 1 forwards;
+}
+
+img {
+    overflow-clip-margin: content-box;
+    overflow: clip;
+    width: 200px; /* Set the desired width */
+    height: auto; /* Automatically adjust the height to maintain the image's aspect ratio */
+}
+
+.user_card .user_image.thumb {
+    display: block;
+    position: relative;
+    width: 100%;
+    max-width: 250px;
+    border-radius: 50%;
+    flex: 0 1 auto;
+    z-index: 1;
+}
+
+.card .card_content > span {
+    flex: 0 1 auto;
+}
+
+.card .thumb {
+    display: block;
+    position: relative;
+    width: 100%;
+    padding-top: 65%;
+    background-color: #000a0c;
+    border-radius: 5px;
+    flex: 0 1 auto;
+    overflow: hidden;
+}
+
+.thumb {
+    display: block;
+    position: relative;
+    width: 100%;
+    padding-top: 100%;
+    border-radius: 5px;
+    overflow: hidden;
+}
+.user_card .user_image .image_container {
+    display: block;
+    position: relative;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding-top: 100%;
+    border-radius: 50%;
+    box-sizing: border-box;
+    transform: none;
+    overflow: hidden;
+}
+
+.thumb > span {
+    display: block;
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.user_card .user_contact, .user_card:not(.badge) .user_details {
+    display: block;
+    width: 100%;
+    padding: 15px;
+    box-sizing: border-box;
+    flex: 1 1 auto;
+    z-index: 2;
+}
+
+.card .card_content > span {
+    flex: 0 1 auto;
+}
+.user_card .user_details .user_name {
+    display: block;
+    font-family: 'Julius Sans One',sans-serif;
+    font-size: calc(16pt + .5vw);
+}
+.user_card .user_contact {
+    display: flex;
+    font-size: calc(12pt + .25vw);
+    line-height: 1.5em;
+    flex-direction: column;
+    align-content: center;
+    justify-content: center;
+}
+a, a:focus {
+    color: #005fff;
+}
+
+    a, a:visited {
+        color: #005fff;
+        text-decoration: none;
+        transition: color .15s ease-in-out;
+    }
+
+a:-webkit-any-link {
+    color: -webkit-link;
+    cursor: pointer;
+    text-decoration: underline;
+}
+.contact_form {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    align-items: center;
+    max-width: 600px;
+    margin: 20px auto 0 auto;
+}
+
+    .contact_form .checkbox_item label {
+        background: #fff;
+        border-radius: 5px;
+        box-shadow: 0 2px 5px rgba(0,0,0,.2);
+    }
+.message:empty {
+    display: none;
+}
+.message {
+    display: block;
+    position: relative;
+    margin: 0 auto;
+    padding: 12px 20px;
+    color: #fff;
+    font-weight: 400;
+    text-align: center;
+    text-shadow: none;
+    background-color: #000a0c;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+.form_group {
+    display: flex;
+    position: relative;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    align-content: stretch;
+    width: 100%;
+}
+.contact_form .form_item {
+    padding: 5px;
+}
+
+.form_group > .form_item {
+    flex: 1 1 auto;
+}
+
+.form_item.x2 {
+    width: 50%;
+}
+
+.form_item {
+    display: block;
+    position: relative;
+    width: 100%;
+    box-sizing: border-box;
+}
+.contact_form .form_item input:not([type=checkbox]), .contact_form .form_item textarea {
+    width: 100%;
+    background: #fff;
+    border-color: #fff;
+    box-shadow: 0 2px 5px rgba(0,0,0,.2);
+}
+input[type="email" i] {
+    writing-mode: horizontal-tb !important;
+    padding-block: 1px;
+    padding-inline: 2px;
+}
+
+input[type=email], input[type=password], input[type=text], textarea {
+    display: block;
+    position: relative;
+    top: 0;
+    margin: 0;
+    padding: 12px 15px;
+    color: #000a0c;
+    font-size: calc(11pt + .1vw);
+    font-family: 'Source Sans Pro',sans-serif;
+    font-weight: 300;
+    line-height: 1em;
+    background-color: transparent;
+    border: 2px #000a0c solid;
+    border-radius: 5px;
+    box-sizing: border-box;
+    outline: 0;
+    transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out;
+}
+
+input[type="text" i] {
+    writing-mode: horizontal-tb !important;
+    padding-block: 1px;
+    padding-inline: 2px;
+}
+
+input:not([type="file" i], [type="image" i], [type="checkbox" i], [type="radio" i]) {
+}
+
+input:not([type="email" i], [type="number" i], [type="password" i], [type="search" i], [type="tel" i], [type="text" i], [type="url" i]) {
+    writing-mode: horizontal-tb !important;
+}
+input[type="checkbox" i] {
+    background-color: initial;
+    cursor: default;
+    appearance: auto;
+    box-sizing: border-box;
+    margin: 3px 3px 3px 4px;
+    padding: initial;
+    border: initial;
+}
+
+input {
+    font-style:;
+    font-variant-ligatures:;
+    font-variant-caps:;
+    font-variant-numeric:;
+    font-variant-east-asian:;
+    font-variant-alternates:;
+    font-variant-position:;
+    font-weight:;
+    font-stretch:;
+    font-size:;
+    font-family:;
+    font-optical-sizing:;
+    font-kerning:;
+    font-feature-settings:;
+    font-variation-settings:;
+    text-rendering: auto;
+    color: fieldtext;
+    letter-spacing: normal;
+    word-spacing: normal;
+    line-height: normal;
+    text-transform: none;
+    text-indent: 0px;
+    text-shadow: none;
+    display: inline-block;
+    text-align: start;
+    appearance: auto;
+    -webkit-rtl-ordering: logical;
+    cursor: text;
+    background-color: field;
+    margin: 0em;
+    padding: 1px 0px;
+    border-width: 2px;
+    border-style: inset;
+    border-color: -internal-light-dark(rgb(118, 118, 118), rgb(133, 133, 133));
+    border-image: initial;
+    padding-block: 1px;
+    padding-inline: 2px;
+}
+.form_actions {
+    margin-top: 20px;
+}
+.contact_form .checkbox_item label {
+    background: #fff;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0,0,0,.2);
+}
+.form_item.checkbox_item > label {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-items: center;
+    justify-content: center;
+    width: auto;
+    margin: 0 auto;
+    padding: 12px 15px;
+    font-weight: inherit;
+    line-height: 1;
+    opacity: 1;
+}
+label {
+    cursor: default;
+}
+.form_item.checkbox_item input {
+    width: auto;
+    margin: 0 8px 0 0;
+}
+.button.black, a.button.black, button.black, input[type=button].black, input[type=submit].black {
+    color: #fff;
+    background-color: #000a0c;
+}
+.button, a.button, button, input[type=button], input[type=submit] {
+    display: inline-block;
+    position: relative;
+    top: 0;
+    margin: 0;
+    padding: 12px 25px;
+    color: #000a0c;
+    font-size: calc(11pt + .1vw);
+    font-family: 'Source Sans Pro',sans-serif;
+    font-weight: 300;
+    line-height: 1em;
+    background-color: transparent;
+    border: 2px #000a0c solid;
+    border-radius: 5px;
+    box-sizing: border-box;
+    white-space: nowrap;
+    outline: 0;
+    cursor: pointer;
+    transform: translateY(0);
+    transition: transform .15s ease-in-out,box-shadow .15s ease-in-out,background-color .15s,border-color .15s ease-in-out;
+}
+button {
+    appearance: auto;
+    font-style:;
+    font-variant-ligatures:;
+    font-variant-caps:;
+    font-variant-numeric:;
+    font-variant-east-asian:;
+    font-variant-alternates:;
+    font-variant-position:;
+    font-weight:;
+    font-stretch:;
+    font-size:;
+    font-family:;
+    font-optical-sizing:;
+    font-kerning:;
+    font-feature-settings:;
+    font-variation-settings:;
+    text-rendering: auto;
+    color: buttontext;
+    letter-spacing: normal;
+    word-spacing: normal;
+    line-height: normal;
+    text-transform: none;
+    text-indent: 0px;
+    text-shadow: none;
+    display: inline-block;
+    text-align: center;
+    align-items: flex-start;
+    cursor: default;
+    box-sizing: border-box;
+    background-color: buttonface;
+    writing-mode: horizontal-tb !important;
+    margin: 0em;
+    padding-block: 1px;
+    padding-inline: 6px;
+    border-width: 2px;
+    border-style: outset;
+    border-color: buttonborder;
+    border-image: initial;
+}
+.captcha_field {
+    display: none;
+}

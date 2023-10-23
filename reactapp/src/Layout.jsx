@@ -1,6 +1,5 @@
 
 import Nav from './Nav.jsx';
-import Welcome from './Welcome.jsx';
 
 
 

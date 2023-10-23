@@ -12,7 +12,7 @@ export default function App() {
     return (
         <BrowserRouter>
             <Routes>
-                <Route path="" element={<Layout />}>
+                <Route path="/" element={<Layout />}>
                     <Route index element={<Welcome />} />
                     <Route path="pokuong" element={<Pokuong />} />
                     <Route path="listing" element={<Listing />} />
