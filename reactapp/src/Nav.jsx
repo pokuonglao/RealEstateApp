@@ -11,8 +11,13 @@ const Nav = () => {
                     <a id="logo" href="/">Pokuong Lao</a>
                     <span className="mobile_menu"></span>
                     <ul className="menu">
-                        <li className="heart">
+                        <li>
                             <a data-anchor="pokuong" href="/pokuong">Pokuong
+                                <span></span>
+                            </a>
+                        </li>
+                        <li>
+                            <a data-anchor="communities" href="/communities">Communities
                                 <span></span>
                             </a>
                         </li>
@@ -25,8 +30,16 @@ const Nav = () => {
                                     <li>
                                         <a href="/listing/lease">Lease</a>
                                     </li>
+                                    <li>
+                                        <a href="/listing/mls">MLS Search</a>
+                                    </li>
                                 </ul>
                             </span>
+                        </li>
+                        <li>
+                            <a data-anchor="blog" href="/blog">Blog
+                                <span></span>
+                            </a>
                         </li>
                         <li className="has-submenu">
                             <a data-anchor="contact" href="/contact">Contact<span></span></a>

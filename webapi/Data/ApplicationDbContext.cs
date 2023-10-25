@@ -6,10 +6,11 @@ namespace RealEstateApp.Data;
 
 public class ApplicationDbContext : DbContext 
 {
+    
     public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : base(options)
     {
        
     }
 
-    public DbSet<GuestBook> GuestBooks { get; set; }
+    public DbSet<Community> Communities { get; set; }
 }

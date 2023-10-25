@@ -8,6 +8,8 @@ var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddScoped<SQLRepository>(); // AddScoped or appropriate lifetime
+// Add services to the container.
+builder.Services.AddScoped<SQLRepoCommunities>(); // AddScoped or appropriate lifetime
 
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
 {
