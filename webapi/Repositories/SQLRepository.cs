@@ -57,8 +57,6 @@ namespace RealEstateApp.Repositories
         //method to retreive all clients from the "clientsList" arraylist
         public List<GuestBook> GetAllGuests()
         {
-            List<GuestBook> guestList = new List<GuestBook>();
-
             using (NpgsqlConnection conn = new NpgsqlConnection(_configuration.GetConnectionString("DefaultConnection")))
             {
                 conn.Open();

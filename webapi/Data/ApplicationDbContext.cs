@@ -12,5 +12,5 @@ public class ApplicationDbContext : DbContext
        
     }
 
-    public DbSet<Community> Communities { get; set; }
+    public DbSet<Communities> Communities { get; set; }
 }

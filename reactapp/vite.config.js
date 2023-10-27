@@ -31,11 +31,12 @@ export default defineConfig({
     },
     server: {
         proxy: {
-            '^/GuestBook': {
+            '^/Communities': {
                 target: 'https://localhost:7152',
                 secure: false
             }
         },
+   
         port: 5173,
         https: {
             key: fs.readFileSync(keyFilePath),

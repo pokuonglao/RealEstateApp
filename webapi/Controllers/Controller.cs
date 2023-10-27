@@ -62,24 +62,24 @@ namespace RealEstateApp.Controllers // Make sure the namespace matches the folde
 
     [Route("[controller]")]
     [ApiController]
-    public class CommunityController : ControllerBase
+    public class CommunitiesController : ControllerBase
     {
         // used to import the sql repository to read all the rules from
         private readonly SQLRepoCommunities sqlRepo;
 
-        public CommunityController(SQLRepoCommunities sqlRepo)
+        public CommunitiesController(SQLRepoCommunities sqlRepo)
         {
             this.sqlRepo = sqlRepo;
 
         }
 
         [HttpPost]
-        [Route("addCommunity")] // Define an appropriate route for adding a guest
-        public IActionResult addCommunity(Community communityToAdd)
+        [Route("addCommunities")] // Define an appropriate route for adding a guest
+        public IActionResult addCommunities(Communities communitiesToAdd)
         {
             try
             {
-                sqlRepo.addCommunity(communityToAdd); // Use the SQLRepository to add a guest
+                sqlRepo.addCommunities(communitiesToAdd); // Use the SQLRepository to add a guest
                 return Ok("Community added successfully.");
             }
             catch (Exception ex)
@@ -89,28 +89,28 @@ namespace RealEstateApp.Controllers // Make sure the namespace matches the folde
             }
         }
 
-        //[HttpGet]
-        //[Route("getAllGuests")]
-        //public IActionResult GetAllGuests()
-        //{
-        //    try
-        //    {
-        //        List<GuestBook> guestList = sqlRepo.GetAllGuests();  // Retrieve guest data from your repository
+        [HttpGet]
+        [Route("getAllCommunities")]
+        public IActionResult GetAllCommunities()
+        {
+            try
+            {
+                List<Communities> CommunitiesList = sqlRepo.GetAllCommunities();  // Retrieve guest data from your repository
 
-        //        if (guestList.Count > 0)
-        //        {
-        //            return Ok(guestList); // Return the list of guests as a JSON response
-        //        }
-        //        else
-        //        {
-        //            return NoContent(); // Return 204 No Content if the list is empty
-        //        }
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        return StatusCode(500, $"An error occurred: {ex.Message}"); // Handle any exceptions
-        //    }
-        //}
+                if (CommunitiesList.Count > 0)
+                {
+                    return Ok(CommunitiesList); // Return the list of guests as a JSON response
+                }
+                else
+                {
+                    return NoContent(); // Return 204 No Content if the list is empty
+                }
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, $"An error occurred: {ex.Message}"); // Handle any exceptions
+            }
+        }
 
 
     }
