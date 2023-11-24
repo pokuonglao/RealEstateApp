@@ -21,20 +21,9 @@ const Nav = () => {
                                 <span></span>
                             </a>
                         </li>
-                        <li className="has-submenu">
+                        <li>
                             <a href="/listing">Listing
-                                <span></span>
                             </a>
-                            <span className="submenu_wrapper">
-                                <ul className="submenu"> 
-                                    <li>
-                                        <a href="/listing/lease">Lease</a>
-                                    </li>
-                                    <li>
-                                        <a href="/listing/mls">MLS Search</a>
-                                    </li>
-                                </ul>
-                            </span>
                         </li>
                         <li>
                             <a data-anchor="blog" href="/blog">Blog
